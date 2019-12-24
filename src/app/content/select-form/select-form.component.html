@@ -1,0 +1,74 @@
+<div class="unique-color z-depth-2">
+  <!-- Default form grid -->
+  <form>
+    <!-- Grid row -->
+    <div class="row" style="margin-right: 2px;">
+      <!-- Grid column -->
+      <div class="col">
+        <!-- Default input -->
+        <!-- <input type="text" class="form-control" placeholder="Choix Réseau"> -->
+        <select style="width: 100%" class="form-control" (change)="onChangeNetwork($event.target.value)" required>
+          <option selected disabled>Choix du réseau</option>
+          <option *ngFor ="let sel of networkList" value="{{sel.value}}">{{sel.name | uppercase}}</option>
+        </select>
+      </div>
+      <!-- Grid column -->
+
+      <!-- Grid column -->
+      <div class="col">
+        <!-- Default input -->
+        <select style="width: 100%" class="form-control" (change)="onChangeKPI($event.target.value)" required>
+          <option selected disabled>KPI</option>
+          <option *ngFor ="let kpi of listKpi" value="{{kpi}}">{{kpi | uppercase}}</option>
+        </select>
+      </div>
+      <!-- Grid column -->
+
+      <!-- Grid column -->
+      <div class="col">
+        <!-- Default input -->
+        <input type="date" class="form-control" placeholder="Date debut" (change)="onDateDebutChange($event.target.value)" required>
+      </div>
+      <!-- Grid column -->
+
+      <!-- Grid column -->
+      <div class="col">
+        <!-- Default input -->
+        <input type="date" class="form-control" placeholder="Date fin" (change)="onDateFinChange($event.target.value)" required>
+      </div>
+      <!-- Grid column -->
+
+      <!-- Grid column -->
+      <div class="col">
+        <!-- Default input -->
+        <select style="width: 100%" class="form-control" (change)="onHeureChange($event.target.value)" required>
+          <option selected disabled>Heure</option>
+          <option *ngFor ="let h of heure24" value="{{h}}">{{h}}</option>
+        </select>
+      </div>
+      <!-- Grid column -->
+
+      <!-- Submit Button -->
+      <div class="col-1">
+        <button type="submit" class="btn btn-primary btn-rounded"
+                style="width: 100%;font-size: 1vw;padding: 0.84rem 0;" (click)="onSendData()">Valider
+        </button>
+      </div>
+      <!-- Submit Button-->
+
+      <!-- Exporter Button -->
+      <div class="col-1">
+        <!--
+        <button type="button" class="btn btn-default btn-rounded"
+                style="width: 100%;font-size: 1vw;padding: 0.84rem 0;">Exporter
+        </button>
+        -->
+        <angular2csv [data]="data" filename="{{fileNameCsv}}" [options]="options"></angular2csv>
+      </div>
+      <!-- Exporter Button-->
+
+    </div>
+    <!-- Grid row -->
+  </form>
+  <!-- Default form grid -->
+</div>

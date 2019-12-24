@@ -1,0 +1,9 @@
+<div class="container-fluid" style="margin-top: 20px;">
+  <h3 style="font-size: 2.5vh;font-weight: bold">Cartographie Réseau</h3>
+  <hr style="margin-top: 0;">
+  <ngx-treeview style="font-size: 2vh;overflow-y: scroll"
+                [config]="config1"
+                [items]="treeElments"
+                (selectedChange)="onSelectChange($event)">
+  </ngx-treeview>
+</div>
