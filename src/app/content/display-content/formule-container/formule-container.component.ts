@@ -31,7 +31,8 @@ export class FormuleContainerComponent implements OnInit {
         if (rep !== null) {
             this.selectedKpi = data.toUpperCase() + ' = ' + rep.formule;
             this.srv.compteursEvent.emit(rep.compteurs);
-          } else {
+          } 
+        else {
             this.selectedKpi = 'Aucune donnée n\'est disponible pour cette configuration!';
             this.srv.compteursEvent.emit(null);
           }
